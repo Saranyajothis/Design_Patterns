@@ -8,12 +8,12 @@ interface Coffee{
 class SimpleCoffee implements Coffee{
     @Override
     public String prepare() {
-        System.out.println("Recipe: Coffee");
+        return "Simple Coffee";
     }
 
     @Override
     public double getCost() {
-        System.out.println("Cost: $2.00");
+        return 2.0;
     }
 
 }
@@ -27,11 +27,11 @@ abstract class CoffeeDecorator implements Coffee{
     }
     @Override
     public String prepare() {
-        decoratedCoffee.prepare();
+        return decoratedCoffee.prepare();
     }
     @Override
     public double getCost() {
-        decoratedCoffee.getCost();
+        return decoratedCoffee.getCost();
     }
 
 }
@@ -41,17 +41,43 @@ class CaramelDecorator extends CoffeeDecorator{
         super(coffee);
     }
     @Override
-    public void prepare() {
-        decoratedCoffee.prepare() + " + Caramel";
+    public String prepare() {
+        return decoratedCoffee.prepare() + " + Caramel";
     }
     @Override
-    public void getCost() {
-        decoratedCoffee.getCost() + " + $0.50";
+    public double getCost() {
+        return decoratedCoffee.getCost() + 0.5;
     }
 }
 
 
+class WhippedCreamDecorator extends CoffeeDecorator{
+    public WhippedCreamDecorator(Coffee coffee){
+        super(coffee);
+    }
+    @Override
+    public String prepare() {
+        return decoratedCoffee.prepare() + " + Whipped Cream";
+    }
+    @Override
+    public double getCost() {
+        return decoratedCoffee.getCost() + 0.7;
+    }
+}
 
 public class DecoratorMain {
+    public static void main(String[] args) {
+        // Create a simple coffee
+        Coffee simpleCoffee = new SimpleCoffee();
+        System.out.println(simpleCoffee.prepare() + " Cost: $" + simpleCoffee.getCost());
+
+        // Decorate with Caramel
+        Coffee caramelCoffee = new CaramelDecorator(simpleCoffee);
+        System.out.println(caramelCoffee.prepare() + " Cost: $" + caramelCoffee.getCost());
+
+        // Decorate with Whipped Cream
+        Coffee whippedCreamCoffee = new WhippedCreamDecorator(caramelCoffee);
+        System.out.println(whippedCreamCoffee.prepare() + " Cost: $" + whippedCreamCoffee.getCost());
+    }
     
 }
