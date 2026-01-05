@@ -1,4 +1,4 @@
-package Structural;
+package creational;
 
 class Computer{
     // Mandatory parameters
