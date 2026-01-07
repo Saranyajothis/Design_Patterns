@@ -1,4 +1,4 @@
-package creational;
+package Creational;
 
 class Computer{
     // Mandatory parameters
