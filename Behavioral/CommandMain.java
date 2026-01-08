@@ -1,4 +1,7 @@
 package Behavioral;
+import java.util.Stack;
+
+import java.util.List;
 
 //command interface
 interface Command{
@@ -47,11 +50,13 @@ class LightOffCommand implements Command{
 }
 
 //invoker class
-class RemoteControl{
+class CommandExecutor{
     Command command;
+    Stack<Command> commandHistory = new Stack<>();
     
     public void setCommand(Command command){
         this.command = command;
+        commandHistory.add(command);
     }
 
     public void pressButton(){
@@ -66,7 +71,7 @@ public class CommandMain {
         Command lightOn = new LightOnCommand(light);
         Command lightOff = new LightOffCommand(light);
         
-        RemoteControl remote = new RemoteControl();
+        CommandExecutor remote = new CommandExecutor();
         remote.setCommand(lightOn);
         remote.pressButton();
 
