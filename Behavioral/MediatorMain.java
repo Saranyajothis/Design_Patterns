@@ -107,6 +107,7 @@ public class MediatorMain {
         Buyer franceBuyer = new FranceBuyer(mediator);
         AmericanSeller americanSeller = new AmericanSeller(mediator, 100.0f);
         DollarConverter dollarConverter = new DollarConverter();
+       
         while(!indianBuyer.attemptToBuy(7000.0f)){
             System.out.println("Indian buyer increasing bid...");
         }
