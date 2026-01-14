@@ -1,7 +1,5 @@
 package Behavioral;
 
-import javax.print.attribute.standard.Media;
-
 class Mediator{
     private Buyer IndianBuyer;
     private Buyer FranceBuyer;
