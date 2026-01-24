@@ -1,18 +1,18 @@
 package Behavioral;
 
 class Mediator{
-    private Buyer IndianBuyer;
-    private Buyer FranceBuyer;
+    private Buyer indianBuyer;
+    private Buyer franceBuyer;
     private AmericanSeller americanSeller;
     private DollarConverter dollarConverter;
 
     public Mediator(){ }
 
     public void registerIndianBuyer(Buyer buyer){
-        this.IndianBuyer = buyer;
+        this.indianBuyer = buyer;
     }
     public void registerFranceBuyer(Buyer buyer){
-        this.FranceBuyer = buyer;
+        this.franceBuyer = buyer;
     }
     public void registerAmericanSeller(AmericanSeller seller){
         this.americanSeller = seller;
