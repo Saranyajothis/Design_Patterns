@@ -68,7 +68,7 @@ class ConcreteTVRemote extends TVRemote{
     }
 }
 
-public class BuilderMain {
+public class BridgeMain {
     public static void main(String[] args) {
         TVRemote googleTVRemote = new ConcreteTVRemote(new GoogleTV());
         googleTVRemote.on();
