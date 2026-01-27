@@ -1,8 +1,13 @@
 package Behavioral;
 
 class Mediator{
+    
+    @SuppressWarnings("unused")
     private Buyer indianBuyer;
+    
+    @SuppressWarnings("unused")
     private Buyer franceBuyer;
+    
     private AmericanSeller americanSeller;
     private DollarConverter dollarConverter;
 
